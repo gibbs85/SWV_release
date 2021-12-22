@@ -99,7 +99,7 @@
 			<td><%=user.getNString("message")%></td>
 		</table>
 		<form action="ProfileMod.jsp" accept-charset="utf-8" method="get">
-			<input type="hidden" name="user_id" value="<%=user.getNString("id") %>">
+			<input type="hidden" name="id" value="<%=user.getNString("id") %>">
 			<input style="width: 80px; margin-left: auto; margin-right: auto; display:block;" type="submit" id="button_comment" value="수정하기" />
 		</form>
 	</div>

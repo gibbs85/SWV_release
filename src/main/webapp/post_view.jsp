@@ -75,7 +75,7 @@
 			</form>
 		</div>
 	</div>
-	
+<!-------------------------------------------------------------------------------------------------------------->	
 <!-------------------------------------------------------게시물------------------------------------------------------->
 <%
  Query sql = new Query();
@@ -100,29 +100,40 @@
 		</table>
 	</div>
 	
+<%if((Integer)session.getAttribute("user_type") == 2){%>
+	<input style="margin-left: auto; margin-right: auto; display:block;" type="submit" id="button_comment" value="추천" />
+	<input style="margin-left: auto; margin-right: auto; display:block;" type="reset" id="button_comment" value="비추천" />
+
+<%} %>
+	
 <!------------------------------------------------------댓글------------------------------------------------------->
 	<br>
 	<br>
 	<br>
 	<div id="div_post_list">
+		<% if(session.getAttribute("id") != null)
+			{%>
 		<table class="post_list_nounderline">
 			<td>
-			<form action="Hidden_post_view_input_comment.jsp" method="post" enctype="Multipart/form-data">
-				<input type="hidden" name="post_id" value="<%=Integer.parseInt(request.getParameter("post_id")) %>">
-				<input type="hidden" name="id" value="<%=session.getAttribute("id") %>">
+			<form action="Hidden_post_view_input_comment.jsp" method="post">
+				<input type="hidden" name="post_id" value="<%=post.post_id%>">
+				<input type="hidden" name="id" value="<%=session.getAttribute("id")%>">
 	        	<input type="text" style="width:900px; height:50px;" id="comment" name="comment"></textarea>
 	        	<input type="submit" id="button_comment" value="전송" />
 	        </form>
 	        </td>
-        </table> 
-        <table class="post_list_nounderline">
+        </table>
+        <%	} %> 
+        <table class="comment_list">
         	<%
         		ResultSet comments = sql.search_comment_by_postid(post.post_id);
         		while(comments.next())
         		{	
         	%>
-        	<td width="10%"><%=comments.getNString("comment_writer_id") %></td>
-        	<td><%=comments.getNString("comment_content") %></td>
+        	<tr>
+        		<td width="10%"><%=comments.getNString("comment_writer_id") %></td>
+        		<td><%=comments.getNString("comment_content") %></td>
+        	</tr>
         	<% } %>
         </table>
 	</div>

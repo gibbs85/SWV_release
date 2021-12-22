@@ -299,7 +299,7 @@ public class Query {
 			this.conn = DriverManager.getConnection(this.jdbcDriver, this.dbUser, this.dbPass);
 			this.stmt = conn.createStatement();
 			String statement = "insert into upvote(upvoter_id, upvoted_post_id, upvote) values("
-					+ "'" +upvote.upvoter_id+ "', '" +upvote.upvoted_post_id+"', "+ upvote.upvote
+					+ "'" +upvote.upvoter_id+ "', " +upvote.upvoted_post_id+", "+ upvote.upvote
 					+ ");";
 			System.out.println(statement);
 			stmt.executeUpdate(statement);

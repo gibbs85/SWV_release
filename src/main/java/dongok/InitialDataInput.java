@@ -25,8 +25,11 @@ public class InitialDataInput {
 		Post post11 = new Post("some/adf/asdf/aa.mp4", "제목11", "내용11", "20211202", tutor99.id);
 		Post post12 = new Post("some/adf/asdf/aa.mp4", "제목12", "내용12", "20211202", tutor99.id);
 		
-		Upvote upv00 = new Upvote(tutie00.id, post05.post_id, 1);
-		Upvote upv01 = new Upvote(tutie00.id, post07.post_id, 1);
+		Upvote upv00 = new Upvote(tutie00.id, 1, 1);
+		Upvote upv01 = new Upvote(tutie00.id, 3, 1);
+		Upvote upv02 = new Upvote(tutie00.id, 7, 1);
+		Upvote upv03 = new Upvote(tutie00.id, 8, 1);
+		Upvote upv04 = new Upvote(tutie00.id, 10, 1);
 		
 		if(!sql.check_dup(tutie00))
 			sql.insert_value(tutie00);
@@ -62,10 +65,16 @@ public class InitialDataInput {
 		if(!sql.check_dup(post12))
 			sql.insert_value(post12);
 		
-		//if(!sql.check_dup(upv00))
-			//sql.insert_value(upv00);
-		//if(!sql.check_dup(upv01))
-			//sql.insert_value(upv01);
+		if(!sql.check_dup(upv00))
+			sql.insert_value(upv00);
+		if(!sql.check_dup(upv01))
+			sql.insert_value(upv01);
+		if(!sql.check_dup(upv02))
+			sql.insert_value(upv02);
+		if(!sql.check_dup(upv03))
+			sql.insert_value(upv03);
+		if(!sql.check_dup(upv04))
+			sql.insert_value(upv04);
 		
 		
 		

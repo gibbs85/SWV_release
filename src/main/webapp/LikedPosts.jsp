@@ -114,15 +114,15 @@
 			<tr>
 				<td align="center"> <%=id %></td>
 				<td>
-					<form action = "TEMP_Post.jsp" accept-charset="utf-8" method="get">
+					<form action = "post_view.jsp" accept-charset="utf-8" method="get">
 					<input type="hidden" name="post_id" value = <%=id%>>
-					<button type="submit" class="none_button_text" name="post_title"><%=title%></button>
+					<button type="submit" class="nav_none_buttonlike" name="post_title"><%=title%></button>
 					</form>
 				</td>
 				<td align="center">
 					<form action = "TutorUploaded.jsp" accept-charset="utf-8" method="get">
 					<input type="hidden" name="tutor_id" value = <%=writer_id%>>
-					<button type="submit" class="none_button_text" name="tutor_id"><%=writer_name%></button>
+					<button type="submit" class="nav_none_buttonlike" name="tutor_id"><%=writer_name%></button>
 					</form>
 				</td>
 				<td align="center"> <%=date %></td>

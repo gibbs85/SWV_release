@@ -16,10 +16,24 @@
 		String comment_content = (String)request.getParameter("comment");
 		int post_id = Integer.parseInt(request.getParameter("post_id"));
 		
-		Comment comment = new Comment(post_id, writer_id, comment_content);
+		Comment comment = new Comment(post_id, comment_content, writer_id);
 		
+	%>
+	
+	<form name = "modcomplete" method="post" action="post_view.jsp">
+		<input type="hidden" name="post_id" value="<%=post_id%>">
+	</form>
+	
+	<%
 		Query sql = new Query();
 		sql.insert_value(comment);
+		
+
+		out.println("<script>");
+		out.println("document.modcomplete.submit()");
+		out.println("</script>");
 	%>
+	
+	
 </body>
 </html>
